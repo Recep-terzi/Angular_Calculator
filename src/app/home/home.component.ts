@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import * as math from 'mathjs';
-import { evaluate } from 'mathjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
