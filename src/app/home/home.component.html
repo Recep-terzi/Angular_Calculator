@@ -1,0 +1,74 @@
+<div class="calculator-section" [ngClass]="darkMode ? 'dark':''">
+    <div class="dark-night">
+        <img src="../../assets/bi_sun.svg" alt="" (click)="darkLightMode('false')">
+        <img src="../../assets/bx_bx-moon.svg" alt="" (click)="darkLightMode('true')">
+    </div>
+    <div class="history">
+        <img src="../../assets/History.svg" alt="" (click)="setHiddenHistory(!hiddenHistory)" data-toggle="modal"
+            data-target="#exampleModal">
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Geçmiş İşlemler</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="all-history" *ngFor="let histor of history">
+                        <div>{{histor}}</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="values">
+
+        {{toshow}}
+    </div>
+    <div class="result">
+        <div>
+            =
+        </div>
+        <div class="result-value">{{sonuc}} </div>
+    </div>
+    <div class="calculator-bottom" [ngClass]="darkMode ? 'dark-bottom':''">
+        <div class="calculator-number">
+            <div class="top" [ngClass]="darkMode ? 'dark-top':''">
+                <div (click)="clear()">AC</div>
+                <div>+/-</div>
+                <div (click)="writeToScreen('%')">%</div>
+            </div>
+            <div class="center" [ngClass]="darkMode ? 'dark-center':''">
+                <div (click)="writeToScreen('1')">1</div>
+                <div (click)="writeToScreen('2')">2</div>
+                <div (click)="writeToScreen('3')">3</div>
+                <div (click)="writeToScreen('4')">4</div>
+                <div (click)="writeToScreen('5')">5</div>
+                <div (click)="writeToScreen('6')">6</div>
+                <div (click)="writeToScreen('7')">7</div>
+                <div (click)="writeToScreen('8')">8</div>
+                <div (click)="writeToScreen('9')">9</div>
+                <div (click)="writeToScreen('.')">.</div>
+                <div (click)="writeToScreen('0')">0</div>
+                <div (click)="writeToScreen('00')">00</div>
+            </div>
+            <div class="right" [ngClass]="darkMode ? 'dark-right':''">
+                <div (click)="writeToScreen('/')">÷</div>
+                <div (click)="writeToScreen('*')">x</div>
+                <div (click)="writeToScreen('-')">-</div>
+                <div (click)="writeToScreen('+')">+</div>
+                <div (click)="equals()">=</div>
+            </div>
+        </div>
+    </div>
+</div>
